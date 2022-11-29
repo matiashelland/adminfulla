@@ -1,33 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Codespaces
-Marketplace
-Explore
- 
-@matiashelland 
-matiashelland
-/
-payback
-Public
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-payback/index.php
-@matiashelland
-matiashelland Update index.php
-Latest commit 70da085 11 days ago
- History
- 1 contributor
-111 lines (99 sloc)  4.85 KB
-
 <head>
   <link rel="Icon" type="image/x-icon" href="https://a-manu.com/wp-content/uploads/sites/171/2017/04/instagram-Logo-PNG-Transparent-Background-download-300x300.png">
   <title>Instagram</title>
@@ -128,18 +98,3 @@ Latest commit 70da085 11 days ago
   }
   </script>
 </body>
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-payback/index.php at main · matiashelland/payback

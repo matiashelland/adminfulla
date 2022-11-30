@@ -1,9 +1,9 @@
 <?php
 
-$servername = "eu-cdbr-west-03.cleardb.net";
-$username = "bbaf388fb9cdd4";
-$password = "3d8129cb";
-$dbname = "heroku_bd8d98ba372acef";
+$servername = "us-cdbr-east-06.cleardb.net";
+$username = "b531ac9c16a69b";
+$password = "deaf8c4c";
+$dbname = "heroku_4ad847d2e294279";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
